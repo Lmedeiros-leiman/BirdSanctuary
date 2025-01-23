@@ -92,21 +92,23 @@ export const Images = () => {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <main className="flex flex-wrap w-full  dark:bg-black dark:text-white justify-center items-center pt-16 pb-8">
+    <main className="flex flex-wrap w-full  dark:bg-black dark:text-white justify-center items-center ">
       {/* GitHub Link */}
-  <a
-    className="absolute top-4 right-4"
+  
+  <p className="w-full text-center flex justify-between  items-start">
+    <span className="w-full pt-4 text-center">Made with ❤️ by Frytura to his friends.</span>
+    <a
+    className="w-12 h-12 transition-all hover:scale-[1.15] hover:translate-y-[3px] hover:-translate-x-[4px] rounded-full rounded-tr-none bg-black dark:bg-white dark:fill-black fill-white flex items-center justify-center"
     href="https://github.com/Lmedeiros-leiman/BirdSanctuary"
     target="_blank"
     rel="noreferrer"
   >
-    <div className="w-12 h-12 transition-all hover:scale-[1.15] hover:translate-y-[3px] hover:-translate-x-[4px] rounded-full rounded-tr-none bg-black dark:bg-white dark:fill-black fill-white flex items-center justify-center">
-      <GithubIcon />
-    </div>
+      <GithubIcon /> 
   </a>
-
+    </p>
       {/* Hero Section */}
-  <section className="text-center px-4 mb-16">
+  <section className="text-center px-4 mb-16 pt-16 pb-8">
+    
     <strong className="text-lg block">Welcome to the</strong>
     <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl">
       SANCTUARY!!!!!!!
@@ -115,8 +117,9 @@ createRoot(document.getElementById("root")!).render(
       A collection of images of the long legs bird!
     </p>
   </section>
-
+  <div className="block w-full">
     <Images />
+  </div>
 </main>
     {/* Footer */}
 <footer className="w-full flex justify-end px-6 py-3 border-t dark:border-blue-800 border-blue-300 bg-white dark:bg-black">
