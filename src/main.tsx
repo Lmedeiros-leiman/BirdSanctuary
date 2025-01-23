@@ -52,75 +52,82 @@ export const Images = () => {
   }, []);
 
   return (
-    <Masonry>
-      {imageUrls.map((url, index) => (
-        <div
-          key={index}
-          className="overflow-hidden border-2 rounded-md border-gray-300 dark:border-white/10 shadow hover:shadow-md transition-shadow duration-200"
+    <Masonry columns={{ xs: 1, md: 3, xl: 4 }}>
+  {imageUrls.map((url, index) => (
+    <div
+      key={index}
+      className="overflow-hidden border-2 rounded-md border-gray-300 dark:border-white/10 shadow hover:shadow-md transition-shadow duration-200"
+    >
+      {/* Image */}
+      <picture className="block">
+        <source srcSet={url} />
+        <img
+          src={url}
+          alt={`image-${index}`}
+          className="w-full h-auto object-cover bg-transparent"
+        />
+      </picture>
+
+      {/* Footer */}
+      <footer className="p-2 bg-gray-100 dark:bg-black border-t-2 border-gray-200 dark:border-white/10 flex justify-between items-center gap-2">
+        <a
+          href={url}
+          download={`bird-image-${index}`}
+          className="bg-blue-400 dark:bg-blue-800 text-white text-sm sm:text-base hover:bg-blue-500 px-3 py-1 rounded-full transition-all flex-1 text-center"
         >
-          <picture className="block ">
-            <source srcSet={url} />
-            <img
-              src={url}
-              alt={`image-${index}`}
-              className="w-full h-auto object-cover  bg-transparent"
-            />
-          </picture>
-          <footer className="p-2 bg-gray-100 dark:bg-black border-t-2 border-gray-200 dark:border-white/10 flex justify-between">
-            <a
-              href={url}
-              download={`bird-image-${index}`}
-              className="bg-blue-400 dark:bg-blue-800 dark:text-black  hover:bg-blue-500 px-3 py-1 rounded-full transition-all "
-            >
-              Download
-            </a>
-            <a
-              href={url}
-              className="bg-blue-400 dark:bg-blue-800 dark:text-black  hover:bg-blue-500 px-3 py-1 rounded-full transition-all "
-            >
-              Source
-            </a>
-          </footer>
-        </div>
-      ))}
-    </Masonry>
+          Download
+        </a>
+        <a
+          href={url}
+          className="bg-blue-400 dark:bg-blue-800 text-white text-sm sm:text-base hover:bg-blue-500 px-3 py-1 rounded-full transition-all flex-1 text-center"
+        >
+          Source
+        </a>
+      </footer>
+    </div>
+  ))}
+</Masonry>
   );
 };
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <main className="flex flex-wrap w-full  dark:bg-black dark:text-white justify-center items-center pt-16 pb-8">
-      <a
-        className="absolute top-0 right-0"
-        href="https://github.com/Lmedeiros-leiman/BirdSanctuary"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div className="w-12 h-12 transition-all hover:scale-[1.15] hover:translate-y-[3px] hover:-translate-x-[4px] rounded-full rounded-tr-none bg-black dark:bg-white dark:fill-black fill-white">
-          <GithubIcon />
-        </div>
-      </a>
+      {/* GitHub Link */}
+  <a
+    className="absolute top-4 right-4"
+    href="https://github.com/Lmedeiros-leiman/BirdSanctuary"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <div className="w-12 h-12 transition-all hover:scale-[1.15] hover:translate-y-[3px] hover:-translate-x-[4px] rounded-full rounded-tr-none bg-black dark:bg-white dark:fill-black fill-white flex items-center justify-center">
+      <GithubIcon />
+    </div>
+  </a>
 
-      <section className=" mb-16">
-        <strong>Welcome to the</strong>
-        <h1 className=" font-bold text-6xl">SANCTUARY!!!!!!!</h1>
-        <p className=" text-slate-600 dark:text-slate-400">
-          a collection of images of the long legs bird!
-        </p>
-      </section>
+      {/* Hero Section */}
+  <section className="text-center px-4 mb-16">
+    <strong className="text-lg block">Welcome to the</strong>
+    <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl">
+      SANCTUARY!!!!!!!
+    </h1>
+    <p className="text-slate-600 dark:text-slate-400 mt-4 text-sm sm:text-base md:text-lg">
+      A collection of images of the long legs bird!
+    </p>
+  </section>
 
-      <Images />
-    </main>
-
-    <footer className="w-full flex justify-end pe-6 py-3 border-b-2 dark:border-blue-800 border-blue-300 bg-white dark:bg-black">
-      <div
-        onClick={() => {
-          window.scrollTo(0, 0);
-        }}
-        className="w-12 h-12 p-2 rounded-full items-center justify-center flex fill-black dark:fill-white dark:bg-white/20 dark:hover:bg-white/50 cursor-pointer bg-black/20 hover:bg-black/50"
-      >
-        <UpArrowIcon />
-      </div>
-    </footer>
+    <Images />
+</main>
+    {/* Footer */}
+<footer className="w-full flex justify-end px-6 py-3 border-t dark:border-blue-800 border-blue-300 bg-white dark:bg-black">
+  <div
+    onClick={() => {
+      window.scrollTo(0, 0);
+    }}
+    className="w-12 h-12 p-2 rounded-full flex items-center justify-center fill-black dark:fill-white dark:bg-white/20 dark:hover:bg-white/50 cursor-pointer bg-black/20 hover:bg-black/50"
+  >
+    <UpArrowIcon />
+  </div>
+</footer>
   </StrictMode>
 );
