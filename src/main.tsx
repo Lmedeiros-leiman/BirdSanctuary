@@ -54,27 +54,33 @@ export const Images = () => {
     fetchImages();
   }, []);
 
-  console.log(imageUrls);
   return (
-    <Masonry>
-      {imageUrls.map((url, index) => {
-        return (
-          <picture key={index}>
-            <source srcSet={url} />
-            <img src={url} alt={`bird-${index}`} className="flex" />
-          </picture>
-        );
-      })}
-    </Masonry>
+    <Masonry >
+    {imageUrls.map((url, index) => (
+    <div
+      key={index}
+      className="overflow-hidden border-2 rounded-md border-gray-300 dark:border-white/10 shadow hover:shadow-md transition-shadow duration-200"
+    >
+      <picture className="block ">
+        <source srcSet={url} />
+        <img
+          src={url}
+          alt={`image-${index}`}
+          className="w-full h-auto object-cover  bg-transparent"
+        />
+      </picture>
+      <footer className="p-2 bg-gray-100 dark:bg-black border-t-2 border-gray-200 dark:border-white/10 flex justify-end">
+        
+        <a href={url} className="bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-full transition-all ">Source</a>
+      </footer>
+    </div>
+  ))}
+  </Masonry>
   );
 };
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <header className="w-full flex justify-end dark:bg-black dark:text-white">
-      
-    </header>
-
     <main className="flex flex-wrap w-full  dark:bg-black dark:text-white justify-center items-center pt-16 pb-8">
       
       <a className="absolute top-0 right-0" 
