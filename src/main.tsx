@@ -69,8 +69,8 @@ export const Images = () => {
           className="w-full h-auto object-cover  bg-transparent"
         />
       </picture>
-      <footer className="p-2 bg-gray-100 dark:bg-black border-t-2 border-gray-200 dark:border-white/10 flex justify-end">
-        
+      <footer className="p-2 bg-gray-100 dark:bg-black border-t-2 border-gray-200 dark:border-white/10 flex justify-between">
+      <a href={url} download={`bird-image-${index}`} className="bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-full transition-all ">Download</a>
         <a href={url} className="bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-full transition-all ">Source</a>
       </footer>
     </div>
